@@ -31,5 +31,6 @@ if __name__ == '__main__':
     #print(foodPlanner.getNeedsMap())
     foodPlanner.plan()
     foodPlan.outputToScreen()
+    foodPlan.outputToCsv("../output/first_month.csv")
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/

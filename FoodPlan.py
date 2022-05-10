@@ -3,6 +3,7 @@ from TimeSlot import TimeSlotType
 from constraints import Constraint
 from constraints import ConstraintType
 from collections import defaultdict
+import csv
 
 
 class FoodPlan(object):
@@ -70,3 +71,11 @@ class FoodPlan(object):
     def outputToScreen(self):
         for timeSlot in self.rootNode.descendants:
             print("{}\t{}".format(timeSlot.name, str(timeSlot.food)))
+
+    def outputToCsv(self, filePath):
+        with open(filePath, 'w') as csvFile:
+            csvWriter = csv.writer(csvFile)
+            for timeSlot in self.rootNode.descendants:
+                row = [timeSlot.name]
+                row.extend(timeSlot.food)
+                csvWriter.writerow(row)
